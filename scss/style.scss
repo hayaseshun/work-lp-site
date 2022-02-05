@@ -24,7 +24,8 @@ body {
 # common
 ===================================================== */
 .section-content {
-  margin: 100px auto 0;
+  margin: 0 auto;
+  padding: 100px;
   max-width: 1100px;
   &__title {
     font-size: 6rem;
@@ -111,5 +112,65 @@ header {
   }
   &__items-img {
     margin-left: 120px;
+  }
+}
+
+/*=====================================================
+# works
+===================================================== */
+.works {
+/*   background: url(/image/works-bgi@2x.png) no-repeat center center/cover;
+ */  position: relative;
+  /* &::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(40, 47, 50, 0.7);
+  } */
+  background: #000;
+  padding-bottom: 250px;
+  .section-content {
+    z-index: 1;
+    &__title {
+      color: #fff;
+    }
+  }
+}
+.works-items {
+  margin-top: 80px;
+  display: flex;
+  max-width: 1000px;
+}
+.works-item {
+  width: calc(33.3% - 20px / 2 * 3);
+
+  &:not(:first-child) {
+    margin-left: 20px;
+  }
+
+  &__img {
+    img {
+      width: 100%;
+    }
+  }
+  &__text {
+    background: #fff;
+    padding: 25px 20px;
+    line-height: 1.875;
+    font-size: 1.6rem;
+  }
+}
+.works-btn {
+  margin-top: 80PX;
+  text-align: center;
+  a {
+    display: inline-block;
+    background: #F7D43F;
+    color: #000;
+    padding: 20px 70px;
+    border-radius: 40px;
   }
 }
