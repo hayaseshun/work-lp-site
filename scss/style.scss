@@ -1,23 +1,115 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Serif+JP&display=swap");
+
+/* ブレークポイント */
+$breakpoints: (
+  //キー: 値
+  "sm": "screen and (max-width: 767px)",
+  "pc": "screen and (min-width: 768px)"
+) !default;
+
+//メディアクエリー
+@mixin mq($breakpoint: md) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+html {
+  font-size: 62.5%;
+}
 body {
   font-family: "Noto Serif", serif;
-  font-size: 62.5%;
+  font-size: 1.6rem;
 }
 /*=====================================================
 # common
 ===================================================== */
-
+.section-content {
+  margin: 100px auto 0;
+  max-width: 1100px;
+  &__title {
+    font-size: 6rem;
+  }
+}
 /*=====================================================
 # main
 ===================================================== */
 .main {
   background: url(/image/fv01.png) no-repeat center center/cover;
+  height: 752px;
 }
 
 .main-inner {
   max-width: 1200px;
   margin: 0 auto;
+  color: #fff;
+  position: relative;
+}
+header {
+  height: 36px;
 }
 .header-inner {
   display: flex;
+  justify-content: space-between;
+  line-height: 36px;
+
+  &__logo {
+    font-size: 2.6rem;
+  }
+
+  &__items {
+    display: flex;
+  }
+
+  &__items-item {
+    a {
+      color: #fff;
+      font-size: 1.6rem;
+    }
+
+    &:not(:first-child) {
+      margin-left: 30px;
+    }
+  }
+}
+.main-message {
+  position: absolute;
+  top: 354px;
+  left: 0;
+  &__main-text {
+    font-size: 7rem;
+    margin-bottom: 30px;
+  }
+
+  &__sub-text {
+    font-size: 4rem;
+  }
+}
+
+/*=====================================================
+# concept
+===================================================== */
+.concept {
+  padding-bottom: 310px;
+}
+.concept-contents {
+  &__message {
+    margin-top: 70px;
+    font-size: 3rem;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 60px;
+    line-height: 50px;
+  }
+  &__items {
+    display: flex;
+    align-items: center;
+  }
+  &__items-text {
+    flex: 0 0 440px;
+    font-weight: bold;
+    line-height: 30px;
+  }
+  &__items-img {
+    margin-left: 120px;
+  }
 }
