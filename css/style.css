@@ -15,12 +15,17 @@ body {
 ===================================================== */
 .section-content {
   margin: 0 auto;
-  padding: 100px;
   max-width: 1100px;
 }
 
 .section-content__title {
   font-size: 6rem;
+}
+
+.section-content__message {
+  font-size: 9rem;
+  margin-top: 90px;
+  color: #171717;
 }
 
 /*=====================================================
@@ -84,6 +89,7 @@ header {
 # concept
 ===================================================== */
 .concept {
+  padding-top: 100px;
   padding-bottom: 310px;
 }
 
@@ -129,6 +135,7 @@ header {
   } */
   background: #000;
   padding-bottom: 250px;
+  padding-top: 100px;
 }
 
 .works .section-content {
@@ -147,6 +154,7 @@ header {
 
 .works-item {
   width: calc(33.3% - 20px / 2 * 3);
+  display: table-cell;
 }
 
 .works-item:not(:first-child) {
@@ -165,14 +173,56 @@ header {
 }
 
 .works-btn {
-  margin-top: 80PX;
+  margin-top: 80px;
   text-align: center;
 }
 
 .works-btn a {
   display: inline-block;
-  background: #F7D43F;
+  background: #f7d43f;
   color: #000;
   padding: 20px 70px;
   border-radius: 40px;
+}
+
+/*=====================================================
+# service
+===================================================== */
+.service {
+  padding-top: 100px;
+  padding-bottom: 248px;
+}
+
+.service .section-content__title {
+  margin-bottom: 80px;
+}
+
+.service-items {
+  display: flex;
+  margin: 0 calc(50% - 50vw);
+  width: 100vw;
+}
+
+.service-item {
+  position: relative;
+}
+
+.service-item::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(23, 23, 23, 0.3);
+  width: 100%;
+}
+
+.service-item__title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 4rem;
+  z-index: 1;
 }
