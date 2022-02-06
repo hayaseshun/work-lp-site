@@ -32,7 +32,9 @@ img {
 ===================================================== */
 .section {
   padding: 100px 0 70px;
-
+  @include mq(sm) {
+    padding: 100px 0 40px;
+  }
   &__title {
     max-width: 1000px;
     font-size: 6rem;
@@ -46,6 +48,13 @@ img {
       height: 5px;
       margin-left: 30px;
       vertical-align: middle;
+      @include mq(sm) {
+        width: 90px;
+      }
+    }
+
+    @include mq(sm) {
+      font-size: 3rem;
     }
   }
   .text-white {
@@ -58,6 +67,9 @@ img {
     max-width: 1000px;
     margin: 0 auto;
     padding: 0 20px;
+    @include mq(sm) {
+      padding: 0 4vw;
+    }
   }
 
   &__bottom-message {
@@ -65,6 +77,9 @@ img {
     margin: 0 auto;
     font-size: 9rem;
     opacity: 0.05;
+    @include mq(sm) {
+      font-size: 4rem;
+    }
   }
 }
 .util-btn {
@@ -74,6 +89,9 @@ img {
   border-radius: 40px;
   width: 235px;
   line-height: 60px;
+  @include mq(sm) {
+    margin-bottom: 40px;
+  }
 }
 
 .text-right {
@@ -81,6 +99,12 @@ img {
 }
 .text-white {
   color: #fff;
+}
+.is-sm {
+  display: none;
+  @include mq(sm) {
+    display: block;
+  }
 }
 /*=====================================================
 # header
@@ -107,10 +131,30 @@ header {
   }
   &__items {
     display: flex;
+    @include mq(sm) {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: #282f35;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
   }
+
   &__items-item {
-    &:not(:first-child) {
-      margin-left: 20px;
+    @include mq(pc) {
+      &:not(:first-child) {
+        margin-left: 20px;
+      }
+    }
+    @include mq(sm) {
+      &:not(:last-child) {
+        margin-bottom: 30px;
+      }
     }
     a {
       color: #fff;
@@ -133,16 +177,31 @@ header {
 
 .main-message {
   position: absolute;
-  left: 120px;
-  bottom: 177px;
   color: #fff;
+  @include mq(pc) {
+    left: 120px;
+    bottom: 177px;
+  }
+  @include mq(sm) {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
   &__main-text {
     font-size: 7rem;
     margin-bottom: 30px;
+    white-space: nowrap;
+    @include mq(sm) {
+      font-size: 9.8vw;
+    }
   }
 
   &__sub-text {
     font-size: 4rem;
+    @include mq(sm) {
+      font-size: 8vw;
+    }
   }
 }
 
@@ -156,22 +215,32 @@ header {
     margin-bottom: 60px;
     font-weight: bold;
     line-height: 1.7;
+    @include mq(sm) {
+      font-size: 2rem;
+    }
   }
 
   &__content {
-    display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 70px;
+    @include mq(pc) {
+      display: flex;
+    }
   }
 
   &__content-text {
     max-width: 440px;
     line-height: 1.9;
+    @include mq(sm) {
+      margin-bottom: 30px;
+    }
   }
 
   &__content-img {
-    margin-left: 20px;
+    @include mq(pc) {
+      margin-left: 20px;
+    }
   }
 }
 /*=====================================================
@@ -183,14 +252,25 @@ header {
 }
 .works-items {
   margin: 0 auto 80px;
-  display: flex;
   max-width: 1000px;
   padding: 50px 0;
-  justify-content: space-between;
+  @include mq(pc) {
+    display: flex;
+    justify-content: space-between;
+  }
+  @include mq(sm) {
+    padding: 50px 4vw;
+  }
 }
 .works-item {
-  width: 32%;
-
+  @include mq(pc) {
+    width: 32%;
+  }
+  @include mq(sm) {
+    &:not(:last-child) {
+      margin-bottom: 30px;
+    }
+  }
   &__text {
     background: #fff;
     padding: 25px 20px;
@@ -213,12 +293,25 @@ header {
   }
 }
 .service-items {
-  display: flex;
+  @include mq(pc) {
+    display: flex;
+  }
+  @include mq(sm) {
+    margin-bottom: 40px;
+  }
 }
 .service-item {
-  width: 33.3%;
-  line-height: 320px;
   color: #fff;
+  @include mq(pc) {
+    width: 33.3%;
+    line-height: 320px;
+  }
+  @include mq(sm) {
+    line-height: 240px;
+    &:not(:last-child) {
+      margin-bottom: 30px;
+    }
+  }
   &:first-child {
     background: url(/image/service-img01@2x.png) no-repeat center center/cover;
   }
@@ -233,6 +326,9 @@ header {
     font-size: 4rem;
     text-align: center;
     font-weight: bold;
+    @include mq(sm) {
+      font-size: 2rem;
+    }
   }
 }
 
@@ -267,4 +363,14 @@ header {
     margin-bottom: 40px;
     z-index: 1;
   }
+}
+
+/*=====================================================
+# footer
+===================================================== */
+footer {
+  padding: 30px 0;
+}
+.footer-text {
+  text-align: center;
 }
