@@ -41,6 +41,10 @@ img {
   vertical-align: middle;
 }
 
+.section .text-white::after {
+  background: #fff;
+}
+
 .section__inner {
   max-width: 1000px;
   margin: 0 auto;
@@ -61,6 +65,14 @@ img {
   border-radius: 40px;
   width: 235px;
   line-height: 60px;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-white {
+  color: #fff;
 }
 
 /*=====================================================
@@ -203,32 +215,30 @@ header {
 
 .service-items {
   display: flex;
-  margin: 0 calc(50% - 50vw);
-  width: 100vw;
 }
 
 .service-item {
-  position: relative;
+  width: 33.3%;
+  line-height: 320px;
+  color: #fff;
 }
 
-.service-item::after {
-  position: absolute;
-  content: "";
-  top: 0;
-  left: 0;
-  bottom: 0;
-  background-color: rgba(23, 23, 23, 0.3);
-  width: 100%;
+.service-item:first-child {
+  background: url(/image/service-img01@2x.png) no-repeat center center/cover;
+}
+
+.service-item:nth-child(2) {
+  background: url(/image/service-img02@2x.png) no-repeat center center/cover;
+}
+
+.service-item:nth-child(3) {
+  background: url(/image/sevice-img03@2x.png) no-repeat center center/cover;
 }
 
 .service-item__title {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #fff;
   font-size: 4rem;
-  z-index: 1;
+  text-align: center;
+  font-weight: bold;
 }
 
 /*=====================================================
@@ -237,6 +247,18 @@ header {
 .contact {
   background: url(/image/fv01@2x.png) no-repeat center center/cover;
   padding: 109px 0 260px;
+  position: relative;
+}
+
+.contact::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: #000;
+  opacity: 0.3;
 }
 
 .contact .section-content__title {
@@ -251,13 +273,6 @@ header {
 .contact-content__message {
   color: #fff;
   font-size: 2rem;
-}
-
-.contact-content__btn {
-  margin-top: 40px;
-}
-
-.contact-content__btn a {
-  display: inline-block;
-  background: #f7d43f;
+  margin-bottom: 40px;
+  z-index: 1;
 }
