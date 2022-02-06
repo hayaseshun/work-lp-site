@@ -19,85 +19,113 @@ html {
 body {
   font-family: "Noto Serif", serif;
   font-size: 1.6rem;
+  letter-spacing: 0.5rem;
+  color: #282f35;
+  line-height: ;
 }
+img {
+  width: 100%;
+  vertical-align: bottom;
+}
+
 /*=====================================================
 # common
 ===================================================== */
-.section-content {
-  margin: 0 auto;
-  max-width: 1100px;
+.section {
+  padding: 100px 0 70px;
+
   &__title {
+    max-width: 1000px;
     font-size: 6rem;
+    padding: 0 20px;
+    margin: 0 auto 80px;
+    &::after {
+      content: "";
+      display: inline-block;
+      background-color: #282f35;
+      width: 200px;
+      height: 5px;
+      margin-left: 30px;
+      vertical-align: middle;
+    }
   }
-  &__message {
+
+  &__inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  &__bottom-message {
+    max-width: 1200px;
+    margin: 0 auto;
     font-size: 9rem;
-    margin-top: 90px;
-    color: #171717;
+    opacity: 0.05;
   }
 }
 .util-btn {
   display: inline-block;
   background: #f7d43f;
   color: #000;
-  padding: 20px 70px;
   border-radius: 40px;
+  width: 235px;
+  line-height: 60px;
+}
+
+/*=====================================================
+# header
+===================================================== */
+header {
+  padding: 19px 30px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  box-sizing: border-box;
+  width: 100%;
+}
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  color: #fff;
+
+  &__logo {
+    font-size: 2.6rem;
+  }
+  &__items {
+    display: flex;
+  }
+  &__items-item {
+    &:not(:first-child) {
+      margin-left: 20px;
+    }
+    a {
+      color: #fff;
+      font-weight: bold;
+    }
+  }
+}
+.burger_button {
+  display: none;
 }
 /*=====================================================
 # main
 ===================================================== */
 .main {
-  background: url(/image/fv01.png) no-repeat center center/cover;
-  height: 752px;
+  height: 100vh;
+  min-height: 550px;
   position: relative;
-  &::after {
-    position: absolute;
-    content: "";
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: rgba(23, 23, 23, 0.2);
-  }
+  background: url(/image/fv01@2x.png) no-repeat center center/cover;
 }
 
-.main-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  color: #fff;
-  position: relative;
-  z-index: 1;
-}
-header {
-  height: 36px;
-}
-.header-inner {
-  display: flex;
-  justify-content: space-between;
-  line-height: 36px;
-
-  &__logo {
-    font-size: 2.6rem;
-  }
-
-  &__items {
-    display: flex;
-  }
-
-  &__items-item {
-    a {
-      color: #fff;
-      font-size: 1.6rem;
-    }
-
-    &:not(:first-child) {
-      margin-left: 30px;
-    }
-  }
-}
 .main-message {
   position: absolute;
-  top: 354px;
-  left: 0;
+  left: 120px;
+  bottom: 177px;
+  color: #fff;
   &__main-text {
     font-size: 7rem;
     margin-bottom: 30px;
@@ -112,80 +140,56 @@ header {
 # concept
 ===================================================== */
 .concept {
-  padding-top: 100px;
-  padding-bottom: 310px;
-}
-.concept-contents {
   &__message {
-    margin-top: 70px;
-    font-size: 3rem;
     text-align: center;
-    font-weight: bold;
+    font-size: 3rem;
     margin-bottom: 60px;
-    line-height: 50px;
-  }
-  &__items {
-    display: flex;
-    align-items: center;
-  }
-  &__items-text {
-    flex: 0 0 440px;
     font-weight: bold;
-    line-height: 30px;
+    line-height: 1.7;
   }
-  &__items-img {
-    margin-left: 120px;
-  }
-}
 
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 70px;
+  }
+
+  &__content-text {
+    max-width: 440px;
+    line-height: 1.9;
+  }
+
+  &__content-img {
+    margin-left: 20px;
+  }
+  
+}
 /*=====================================================
 # works
 ===================================================== */
 .works {
   background: url(/image/works-bgi@2x.png) no-repeat center center/cover;
   position: relative;
-  &::after {
-    position: absolute;
-    content: "";
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(40, 47, 50, 0.7);
-  }
-  padding-bottom: 250px;
-  padding-top: 100px;
-  .section-content {
-    z-index: 1;
-    &__title {
-      color: #fff;
-    }
-  }
+  
 }
 .works-items {
-  margin-top: 80px;
+  margin: 0 auto 80px;
   display: flex;
   max-width: 1000px;
+  padding: 50px 0;
+  justify-content: space-between;
 }
 .works-item {
-  width: calc(33.3% - 20px / 2 * 3);
-  display: table-cell;
-  &:not(:first-child) {
-    margin-left: 20px;
-  }
+  width: 32%;
 
-  &__img {
-    img {
-      width: 100%;
-    }
-  }
+
   &__text {
     background: #fff;
     padding: 25px 20px;
-    line-height: 1.875;
-    font-size: 1.6rem;
   }
 }
+
 .works-btn {
   margin-top: 80px;
   text-align: center;
